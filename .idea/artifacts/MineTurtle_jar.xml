@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MineTurtle:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MineTurtle_jar</output-path>
+    <root id="archive" name="MineTurtle.jar">
+      <element id="module-output" name="MineTurtle" />
+    </root>
+  </artifact>
+</component>
