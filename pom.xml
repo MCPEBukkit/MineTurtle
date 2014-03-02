@@ -19,7 +19,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>tk.knownunown.mineturtle.Server</mainClass>
+                            <mainClass>tk.knownunown.mineturtle.MineTurtle</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
