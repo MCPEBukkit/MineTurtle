@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="payton:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/payton_jar</output-path>
+    <root id="archive" name="payton.jar">
+      <element id="module-output" name="payton" />
+    </root>
+  </artifact>
+</component>

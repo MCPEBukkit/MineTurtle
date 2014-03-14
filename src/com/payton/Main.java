@@ -1,15 +1,12 @@
-package tk.knownunown.mineturtle;
-import tk.knownunown.mineturtle.networking.NetworkHandler;
-/**
- * Created by andrew on 3/1/14.
- */
-public class MineTurtle implements Runnable {
+package com.payton;
+
+public class Main implements Runnable {
 
     public static boolean isStarted = false;
     public static final Loggy loggy = new Loggy();
 
-    public static void main(String args[]){
-        (new Thread(new MineTurtle())).start();
+    public static void main(String[] args) {
+        (new Thread(new Main())).start();
         loggy.start();
     }
 

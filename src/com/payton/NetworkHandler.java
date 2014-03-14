@@ -1,49 +1,49 @@
-package tk.knownunown.mineturtle.networking;
+package com.payton;
 
-import java.net.*;
-import java.io.*;
-import tk.knownunown.mineturtle.Loggy;
-import tk.knownunown.mineturtle.MineTurtle;
-import tk.knownunown.mineturtle.networking.packet.PacketTypes;
+import sun.rmi.runtime.Log;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 
 /**
- * Created by andrew on 3/1/14.
+ * Created by the MineTurtle crew on 3/14/14.
  */
 public class NetworkHandler extends Thread {
 
     private static DatagramSocket socket = null;
 
     public NetworkHandler(){
-        try{
+        try {
             this.socket = new DatagramSocket(19132);
-        } catch(SocketException e){
+        }catch (SocketException e){
             Loggy.error("aww, we were unable to create the socket :(");
             e.printStackTrace();
         }
-        Loggy.info("MineTurtle networking initialized.");
+        Loggy.info("MineTurtle networking initalized.");
     }
 
-    public void run() {
-        while(MineTurtle.isStarted){
+    public void run(){
+        while (Main.isStarted){
             byte buffer[] = new byte[1024];
             DatagramPacket p = new DatagramPacket(buffer, buffer.length);
             try {
                 socket.receive(p);
-            } catch(IOException e){
+            }catch (IOException e){
                 Loggy.error("aww, bad luck. IOException?!");
                 e.printStackTrace();
-            } finally {
+            }finally {
                 String hexs = Integer.toHexString(0xFF & p.getData()[0]);
                 int type = (int) Long.parseLong(hexs, 16);
-                Loggy.info("yayz, recieved packet " + type + " with a length of " + p.getLength());
-                //TODO: add a switch statement here to parse packets. (whoops fixed with handlePacket)
+                Loggy.info("yayz, received packet " + type + "with length of " + p.getLength());
                 handlePacket(p, type);
             }
         }
     }
 
-    public void handlePacket(DatagramPacket packet, int type){
-        switch(type){ //hah! Tricked you, IntelliJ!
+    private void handlePacket(DatagramPacket packet, int type) {
+        switch (type){
             case PacketTypes.UNCONNECTED_PING:
             case PacketTypes.UNCONNECTED_PING_OPEN_CONNECTIONS:
                 break;

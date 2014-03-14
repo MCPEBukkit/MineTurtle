@@ -1,8 +1,10 @@
-package tk.knownunown.mineturtle;
+package com.payton;
 
-import java.util.logging.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- * Created by andrew on 3/1/14.
+ * Created by the MineTurtle crew on 3/14/14.
  */
 public class Loggy extends Thread {
 
@@ -16,7 +18,7 @@ public class Loggy extends Thread {
         info("helloooo, world!");
     }
 
-    public static void info(String message){
+    public static void info(String message) {
         logger.info("[MineTurtle|INFO] " + message);
     }
 
