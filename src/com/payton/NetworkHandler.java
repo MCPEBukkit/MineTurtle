@@ -1,7 +1,5 @@
 package com.payton;
 
-import sun.rmi.runtime.Log;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
